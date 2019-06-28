@@ -10,7 +10,7 @@ export default class GifListContainer extends Component {
         gifs:[] }; // Store the fetched data
   }
 
-  componentDidMount() {
+  componentDidUpdate() {
     // Do my fetch stuff here
     const url =
       `http://api.giphy.com/v1/gifs/search?q=${this.state.search}&api_key=dc6zaTOxFJmzC&rating=g`;
@@ -24,12 +24,12 @@ export default class GifListContainer extends Component {
   gifsearch = (e,searchText) => {
       e.preventDefault();
       this.setState({ search:searchText});
-      const url =
-      `http://api.giphy.com/v1/gifs/search?q=${searchText}&api_key=dc6zaTOxFJmzC&rating=g`;
+    //   const url =
+    //   `http://api.giphy.com/v1/gifs/search?q=${searchText}&api_key=dc6zaTOxFJmzC&rating=g`;
 
-    fetch(url)
-      .then(data => data.json())
-      .then(data => this.setState({ gifs: data.data.slice(0, 3) })); //Get the 1st 3
+    // fetch(url)
+    //   .then(data => data.json())
+    //   .then(data => this.setState({ gifs: data.data.slice(0, 3) })); //Get the 1st 3
 
   }
 
